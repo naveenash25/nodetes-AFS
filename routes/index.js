@@ -3,6 +3,10 @@ var router = express.Router();
 var swapi = require('swapi-node');
 var async = require('async');
 
+router.get('/', function(req, res, next) {
+	res.render('index',{title: "AFS test"})
+});
+
 router.get('/character/:name', function(req, res, next) {
 	var name = req.params.name;
 	getNewData(res, 'http://swapi.co/api/people/', name, function(data){
